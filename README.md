@@ -26,6 +26,8 @@
 2. first_name - имя
 3. last_name - фамилия
 4. birth_date - дата рождения
+5. email - почта юзера
+6. password - пароль юзера
 
 ### admin
 
