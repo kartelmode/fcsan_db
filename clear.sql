@@ -1,0 +1,27 @@
+SET SQL_SAFE_UPDATES = 0;
+DELETE FROM admin;
+DELETE FROM basket;
+DELETE FROM basket_product;
+DELETE FROM organization;
+DELETE FROM organization_manager;
+DELETE FROM organization_request;
+DELETE FROM product;
+DELETE FROM transaction;
+DELETE FROM user;
+DELETE FROM user_order;
+DELETE FROM user_wallet;
+
+ALTER TABLE admin AUTO_INCREMENT=1;
+ALTER TABLE basket AUTO_INCREMENT=1;
+ALTER TABLE basket_product AUTO_INCREMENT=1;
+ALTER TABLE organization AUTO_INCREMENT=1;
+ALTER TABLE organization_manager AUTO_INCREMENT=1;
+ALTER TABLE organization_request AUTO_INCREMENT=1;
+ALTER TABLE product AUTO_INCREMENT=1;
+ALTER TABLE transaction AUTO_INCREMENT=1;
+ALTER TABLE user AUTO_INCREMENT=1;
+ALTER TABLE user_order AUTO_INCREMENT=1;
+ALTER TABLE user_wallet AUTO_INCREMENT=1;
+
+
+SET SQL_SAFE_UPDATES = 1;
