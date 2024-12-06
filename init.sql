@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS user(
     birth_date date NOT NULL,
     password varchar(100) NOT NULL,
     email varchar(100) NOT NULL,
-    basket_id int NOT NULL
+    basket_id int
 );
 
 ALTER TABLE user

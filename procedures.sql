@@ -107,16 +107,17 @@ DELIMITER //
 CREATE PROCEDURE add_empty_basket_for_user(user_id int)
 BEGIN
 	INSERT INTO basket () VALUES ();
-    UPDATE user
+  UPDATE user
 		SET basket_id = last_insert_id()
         WHERE id = user_id;
 END
 //
 DELIMITER ;
 
-SELECT get_basket_id_for_user(2);
-SELECT get_total_basket_cost(2);
-
-call add_empty_basket_for_user(2);
-
-SELECT * FROM user;
+DELIMITER //
+CREATE PROCEDURE add_empty_wallet_for_user(user_id int)
+BEGIN
+	INSERT INTO user_wallet (user_id) VALUES (user_id);
+END
+//
+DELIMITER ;

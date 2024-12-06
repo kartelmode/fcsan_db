@@ -2,31 +2,27 @@ INSERT INTO user (first_name, last_name, birth_date, password, email)
 	VALUES ("Aliaksandr", "Loseu", "2005-02-17", "admin", "losevgg@gmail.com");
 INSERT INTO admin (user_id) 
 	VALUES (1);
-INSERT INTO basket () VALUES ();
-INSERT INTO user (first_name, last_name, birth_date, password, email, basket_id)
-	VALUES ("username1", "userlastname1", "2002-02-02", "lol", "user1@gmail.com", 1);
+INSERT INTO user (first_name, last_name, birth_date, password, email)
+	VALUES ("username1", "userlastname1", "2002-02-02", "lol", "user1@gmail.com");
 
-INSERT INTO basket () VALUES ();
-INSERT INTO user (first_name, last_name, birth_date, password, email, basket_id)
-	VALUES ("username2", "userlastname2", "2002-03-04", "lol2", "user2@gmail.com", 2);
-INSERT INTO basket () VALUES ();
-INSERT INTO user (first_name, last_name, birth_date, password, email, basket_id)
-	VALUES ("username3", "userlastname3", "2002-03-03", "lol3", "user3@gmail.com", 3);
+INSERT INTO user (first_name, last_name, birth_date, password, email)
+	VALUES ("username2", "userlastname2", "2002-03-04", "lol2", "user2@gmail.com");
+INSERT INTO user (first_name, last_name, birth_date, password, email)
+	VALUES ("username3", "userlastname3", "2002-03-03", "lol3", "user3@gmail.com");
 
 INSERT INTO user_wallet (user_id) VALUES (1);
 INSERT INTO user_wallet (user_id) VALUES (2);
 INSERT INTO user_wallet (user_id) VALUES (3);
 INSERT INTO user_wallet (user_id) VALUES (4);
 
-INSERT INTO basket () VALUES ();
-INSERT INTO user (first_name, last_name, birth_date, password, email, basket_id)
-	VALUES ("organizator1", "organizatorlastname1", "2000-03-04", "zheskiy_org", "organizator@gmail.com", 4);
+INSERT INTO user (first_name, last_name, birth_date, password, email)
+	VALUES ("organizator1", "organizatorlastname1", "2000-03-04", "zheskiy_org", "organizator@gmail.com");
 INSERT INTO user_wallet (user_id) VALUES (4);
 
 INSERT INTO organization (name, description, phone_number, user_id) 
 	VALUES ("Apple", "BIG TECH SCAM CORPORATION", "8(800)5553535", 5);
 INSERT INTO organization_request (organization_id, description, document, status)
-	VALUES (1, "ДОБАВЬТЕ ПЖПЖПЖПЖПЖПЖ", LOAD_FILE("C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/CV_Aliaksandr_Loseu_RU.pdf"),  "Accepted");
+	VALUES (1, "ДОБАВЬТЕ ПЖПЖПЖПЖПЖПЖ", "",  "Accepted");
 INSERT INTO organization_manager (user_id, organization_id)
 	VALUES (5, 1);
 

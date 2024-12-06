@@ -19,9 +19,34 @@ CREATE TRIGGER before_insert_order
 BEFORE INSERT ON user_order
 FOR EACH ROW
 BEGIN
-	if NEW.status != 'Accepted' then
-		set new.total_cost = get_total_basket_cost(new.basket_id);
+	set new.total_cost = get_total_basket_cost(new.basket_id);
+	if NEW.status = 'Accepted' then
+		call add_order_transaction(-NEW.total_cost, NEW.user_id);
+        call add_empty_basket_for_user(NEW.user_id);
     end if;
+END//
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE TRIGGER before_insert_user
+BEFORE INSERT ON user
+FOR EACH ROW
+BEGIN
+	INSERT INTO basket () VALUES ();
+  	set NEW.basket_id = last_insert_id();
+END//
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE TRIGGER after_insert_user
+AFTER INSERT ON user
+FOR EACH ROW
+BEGIN
+	call add_empty_wallet_for_user(NEW.id);
 END//
 
 DELIMITER ;
@@ -91,22 +116,3 @@ BEGIN
 END//
 
 DELIMITER ;
-
-select * from user_order;
-select * from user;
-select * from basket;
-select * from transaction;
-select * from organization_manager;
-select * from user_wallet;
-select * from product;
-SELECT * FROM basket_product;
-
-INSERT INTO basket_product (product_id, basket_id) VALUES (7, 15);
-INSERT INTO basket_product (product_id, basket_id) VALUES (2, 14);
-
-INSERT INTO transaction (amount, time, wallet_id) VALUES (2000, now(), 3);
-
-INSERT INTO user_order (basket_id, user_id, status) VALUES (14, 3, 'Waiting');
-UPDATE user_order SET status = 'Accepted' WHERE id = 8;
-
-UPDATE product SET cost = 3000 WHERE id = 7;
